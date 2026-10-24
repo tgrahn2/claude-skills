@@ -75,6 +75,23 @@ optional, override the top-level default):
 Top-level overrides when needed: `material_thickness`, `bottom_thickness`,
 `groove_depth`, `slide_deduction` (default 1.625), `round_to` (16 or 32).
 
+## Visual plans (3D + dimensioned drawings)
+
+When the user wants to *see* it (or always, for a build), generate a
+self-contained HTML plan sheet from the SAME config:
+
+```bash
+python3 -I ~/.claude/skills/blum-drawer/scripts/render_drawer.py CONFIG.json OUT.html
+```
+
+It produces an interactive three.js box (explode slider, per-drawer selector,
+spin, dimension sprites) plus per-drawer dimensioned SVG shop drawings — FRONT
+elevation, SIDE section, and an EXPLODED "cut these pieces" layout with every
+measurement spelled out in fractions. Save it next to the project's other plans
+(e.g. `plans/drawer-box-plans.html`) and save the config beside it so it's
+reproducible. To screenshot headless for a quick look, Chrome needs a software
+GL backend: `--use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader`.
+
 ## Present
 
 Show the script output (per-drawer + consolidated group-at-the-saw list). Then
